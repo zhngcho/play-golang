@@ -25,7 +25,11 @@ LOOP:
 			if !ok {
 				break LOOP
 			}
-			sum += i
+			sum += i % 2
+			if sum > 1000*1000 {
+				fmt.Println(sum)
+				sum = 0
+			}
 		case <-time.After(time.Minute):
 			break LOOP
 		}
